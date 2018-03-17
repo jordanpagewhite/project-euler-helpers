@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jordanpagewhite/project-euler-helpers.svg?branch=master)](https://travis-ci.org/jordanpagewhite/project-euler-helpers)
+
 # Project Euler Helpers
 
 This project aims to provide some helper functions for solving Project Euler problems in Javascript.
