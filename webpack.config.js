@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var htmlWebpackPlugin = require('html-webpack-plugin');
+var babelPluginTransformES2015ModulesCommonJS = require('babel-plugin-transform-es2015-modules-commonjs');
 
 var htmlWebpackPluginConfig = new htmlWebpackPlugin({
   template: path.resolve(__dirname + '/app/index.html'),
@@ -28,7 +29,7 @@ module.exports = {
         ],
         loader: 'babel-loader',
         query: {
-            presets: ['es2015', 'stage-0']
+            presets: ['es2016', 'stage-0']
         }
       }
     ]
@@ -37,5 +38,5 @@ module.exports = {
       colors: true
   },
   devtool: 'source-map',
-  plugins: [htmlWebpackPluginConfig]
- };
+  plugins: [htmlWebpackPluginConfig, babelPluginTransformES2015ModulesCommonJS]
+};

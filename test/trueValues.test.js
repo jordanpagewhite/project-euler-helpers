@@ -1,6 +1,6 @@
 const assert = require('assert');
 const should = require('chai').should();
-const helpers = require('../app/helpers.js');
+const peh = require('../app/ProjectEulerHelpers.js');
 
 describe('trueValues(arr)', function() {
   it('should return 3 for [true, true, true, false, false, false]', function() {
