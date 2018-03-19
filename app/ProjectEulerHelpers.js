@@ -231,7 +231,7 @@ export default class ProjectEulerHelpers {
   primeSieve(n) {
     if (Number.isInteger(n) && n > 1) {
       const array = Array.from(Array(n-1).keys())
-      const upperLimit = Math.sqrt(n)
+      const upperLimit = Math.ceil(Math.sqrt(n))
 
       // Remove multiples of primes
       for (let i = 2; i <= upperLimit; i++) {
@@ -243,9 +243,7 @@ export default class ProjectEulerHelpers {
       }
 
       // Return true values i.e. primes
-      return array.filter((el, i, arr) => {
-        return el && (el >= 2)
-      })
+      return array.filter((el) => Number.isInteger(el) && (el >= 2))
     }
 
     return false
@@ -261,9 +259,24 @@ export default class ProjectEulerHelpers {
    * @see nthPrimeUpperBound
    */
   nthPrime(n) {
-    return (Number.isInteger(n) && n >= 1)
-      ? this.primeSieve(this.nthPrimeUpperBound(n))[n-1]
-      : false
+    if (Number.isInteger(n)) {
+      // The upper bound works for n > 5, so I am settings bounds for n <= 5.
+      if (n > 5) {
+        return this.primeSieve(this.nthPrimeUpperBound(n))[n-1]
+      } else if (n == 5) {
+        return 11
+      } else if (n == 4) {
+        return 7
+      } else if (n == 3) {
+        return 5
+      } else if (n == 2) {
+        return 3
+      } else if (n == 1) {
+        return 2
+      }
+    }
+
+    return false
   }
 
   /**
@@ -274,20 +287,9 @@ export default class ProjectEulerHelpers {
    * Return false if n is not a natural number.
    */
   nthPrimeUpperBound(n) {
-    if (n > 3) {
-      return (Number.isInteger(n) && n > 1)
-        ? Math.ceil(n*Math.log(n*Math.log(n)))
-        : false
-    } else if (n == 3) {
-      // This estimation works for n > 3, so I am settings bounds for n <= 3.
-      return 6
-    } else if (n == 2) {
-      return 4
-    } else if (n == 1) {
-      return 3
-    } else {
-      return false
-    }
+    return (Number.isInteger(n) && n > 5)
+      ? Math.ceil(n*Math.log(n*Math.log(n)))
+      : false
   }
 
   /**

@@ -1,8 +1,11 @@
-const assert = require('assert');
-const should = require('chai').should();
-const peh = require('../app/ProjectEulerHelpers.js');
+import 'babel-polyfill'
+import { assert } from 'assert'
+import 'chai/register-should'
+import ProjectEulerHelpers from '../app/ProjectEulerHelpers.js'
 
 describe('nthPrime(n)', function() {
+  const peh = new ProjectEulerHelpers()
+
   it('should return false if n is not an integer', function() {
     peh.nthPrime(1.2).should.equal(false);
   });

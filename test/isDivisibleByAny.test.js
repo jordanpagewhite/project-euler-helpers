@@ -1,8 +1,11 @@
-const assert = require('assert');
-const should = require('chai').should();
-const peh = require('../app/ProjectEulerHelpers.js');
+import 'babel-polyfill'
+import { assert } from 'assert'
+import 'chai/register-should'
+import ProjectEulerHelpers from '../app/ProjectEulerHelpers.js'
 
 describe('isDivisibleByAny(x, arr)', function() {
+  const peh = new ProjectEulerHelpers()
+
   it('should return false when x is not an integer', function() {
     peh.isDivisibleByAny(0.1, [2,3,4,5]).should.equal(false);
   });

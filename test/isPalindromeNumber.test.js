@@ -1,8 +1,11 @@
-const assert = require('assert');
-const should = require('chai').should();
-const peh = require('../app/ProjectEulerHelpers.js');
+import 'babel-polyfill'
+import { assert } from 'assert'
+import 'chai/register-should'
+import ProjectEulerHelpers from '../app/ProjectEulerHelpers.js'
 
 describe('isPalindromeNumber(n)', function() {
+  const peh = new ProjectEulerHelpers()
+
   it('should return false when n is a negative integer', function() {
     peh.isPalindromeNumber(-131).should.equal(false);
   });

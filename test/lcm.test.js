@@ -1,8 +1,11 @@
-const assert = require('assert');
-const should = require('chai').should();
-const peh = require('../app/ProjectEulerHelpers.js');
+import 'babel-polyfill'
+import { assert } from 'assert'
+import 'chai/register-should'
+import ProjectEulerHelpers from '../app/ProjectEulerHelpers.js'
 
 describe('lcm(arr)', function() {
+  const peh = new ProjectEulerHelpers()
+
   it('should return false when any value in arr is not an integer', function() {
     peh.lcm([0.1,2]).should.equal(false);
   });
