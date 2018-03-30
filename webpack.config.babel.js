@@ -11,13 +11,15 @@ var htmlWebpackPluginConfig = new htmlWebpackPlugin({
 var entrypoint = [
   process.env.npm_lifecycle_event === 'dev' ?
     'webpack-dev-server/client?http://localhost:8080' :
-    path.resolve(__dirname + '/app/ProjectEulerHelpers.js'),
+    path.resolve(__dirname + '/app/index.js'),
 ];
 
 module.exports = {
   entry: entrypoint,
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    library: 'ProjectEulerHelpers',
+    libraryTarget: 'umd',
+    path: path.resolve(__dirname + '/dist'),
     filename: 'bundle.js'
   },
   plugins: [htmlWebpackPluginConfig],

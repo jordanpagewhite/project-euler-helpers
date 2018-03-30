@@ -1,7 +1,7 @@
 import 'babel-polyfill'
 import { assert } from 'assert'
 import 'chai/register-should'
-import ProjectEulerHelpers from '../app/ProjectEulerHelpers'
+import ProjectEulerHelpers from '../app/index'
 
 describe('gcd(arr)', function() {
   const peh = new ProjectEulerHelpers()

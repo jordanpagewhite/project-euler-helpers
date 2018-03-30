@@ -1,7 +1,7 @@
 import 'babel-polyfill'
 import { assert } from 'assert'
 import 'chai/register-should'
-import ProjectEulerHelpers from '../app/ProjectEulerHelpers.js'
+import ProjectEulerHelpers from '../app/index'
 
 describe('isDivisibleByAny(x, arr)', function() {
   const peh = new ProjectEulerHelpers()

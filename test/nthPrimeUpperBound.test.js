@@ -2,7 +2,7 @@ import 'babel-polyfill'
 import { expect } from 'chai'
 import { assert } from 'chai'
 import 'chai/register-should'
-import ProjectEulerHelpers from '../app/ProjectEulerHelpers.js'
+import ProjectEulerHelpers from '../app/index'
 
 describe('nthPrimeUpperBound(n)', function() {
   const peh = new ProjectEulerHelpers()
