@@ -304,6 +304,43 @@ class ProjectEulerHelpers {
 
     return false
   }
+
+  /**
+   * Returns the maximal subset, given a subset size, within a string of digits.
+   *
+   * @param {string} digits - A string of numeric digits.
+   * @param {number} subsetSize - The size of the subset.
+   * @return {number} The maximal subset, given a subset size, within a string
+   * of digits.
+   */
+  maxProductSubset(digits, subsetSize) {
+    let max = 0
+    // Convert string to array of integers.
+    let digitsArr = digits.split('').map(Number)
+
+    digitsArr.forEach((e,i) => {
+      // Verify that there is a value 13 indices ahead.
+      if (typeof digitsArr[i+subsetSize] != 'undefined') {
+        let product = this.productOfSubset(digitsArr,i,subsetSize)
+        max = (max < product) ? product : max
+      }
+    })
+
+    return max
+  }
+
+  /**
+   * Returns the product of a subset of an array.
+   *
+   * @param {number[]} arr - An array of natural numbers.
+   * @param {number} index - An array index (natural number).
+   * @param {number} subsetSize - The size of the subset to calculate the
+   * product of.
+   * @return {number} The product of the subset of the array.
+   */
+  productOfSubset(arr, index, subsetSize) {
+    return arr.slice(index,index+subsetSize).reduce((a,c) => a * c)
+  }
 }
 
 module.exports = ProjectEulerHelpers
