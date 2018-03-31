@@ -318,10 +318,10 @@ class ProjectEulerHelpers {
     // Convert string to array of integers.
     let digitsArr = digits.split('').map(Number)
 
-    digitsArr.forEach((e,i) => {
+    digitsArr.forEach((e, i) => {
       // Verify that there is a value 13 indices ahead.
       if (typeof digitsArr[i+subsetSize] != 'undefined') {
-        let product = this.productOfSubset(digitsArr,i,subsetSize)
+        let product = this.productOfSubset(digitsArr, i, subsetSize)
         max = (max < product) ? product : max
       }
     })
@@ -339,7 +339,7 @@ class ProjectEulerHelpers {
    * @return {number} The product of the subset of the array.
    */
   productOfSubset(arr, index, subsetSize) {
-    return arr.slice(index,index+subsetSize).reduce((a,c) => a * c)
+    return arr.slice(index, index+subsetSize).reduce((a, c) => a * c)
   }
 }
 
