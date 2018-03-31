@@ -147,7 +147,7 @@ class ProjectEulerHelpers {
     do {
       num1 = func(num1) % n
       num2 = func(func(num2)) % n
-      divisor = this.gcd(Math.abs(num1 - num2), n)
+      divisor = this.gcdEuclidean(Math.abs(num1 - num2), n)
     } while (divisor == 1)
 
     return (divisor == n) ? this.rho(n, this.g) : divisor
