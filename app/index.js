@@ -341,6 +341,37 @@ class ProjectEulerHelpers {
   productOfSubset(arr, index, subsetSize) {
     return arr.slice(index, index+subsetSize).reduce((a, c) => a * c)
   }
-}
 
+  /**
+   * Returns an array of the Pythagorean triplet [a,b,c] for which a+b+c=s.
+   *
+   * @param {number} s - The sum we want for a+b+c.
+   * @return {number[]|boolean} The array of the Pythagorean Triplet [a,b,c]
+   * such that a+b+c=s. Returns false if no such Pythagorean Triplet exists.
+   */
+  getPythagoreanTripletBySum(s) {
+    let m = 2
+
+    while (m < s) {
+      let n = 1
+
+      while (n < m) {
+        let a = m*m - n*n
+        let b = 2*m*n
+        let c = m*m + n*n
+
+        if (s % (a+b+c) == 0) {
+          let k = s / (a+b+c)
+          return [k*a, k*b, k*c]
+        }
+
+        n++
+      }
+
+      m++
+    }
+
+    return false
+  }
+}
 module.exports = ProjectEulerHelpers
