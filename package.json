@@ -6,7 +6,7 @@
   "scripts": {
     "test": "./node_modules/.bin/mocha --require babel-core/register",
     "lint": "./node_modules/.bin/eslint ./app/*.js",
-    "docs": "./node_modules/.bin/jsdoc ./app/ProjectEulerHelpers.js",
+    "docs": "./node_modules/.bin/jsdoc ./app/index.js",
     "start": "webpack-dev-server",
     "build": "webpack"
   },
